@@ -1,0 +1,59 @@
+<!--Local Storage, which is nothing else than a storage location managed by the web browser
+     And as the same suggests, all is saved locally on the machine where the browser is installed.
+    -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        /*
+        What’s interesting about them is that the data survives a page refresh (for sessionStorage)
+         and even a full browser restart (for localStorage).
+        */
+        localStorage.setItem('test', 1);//persistent storage
+        alert( localStorage.getItem('test') );
+        
+    </script>
+</head>
+<body>
+ 
+
+    <form method="post" action="#" id="form">
+        saba
+        <input type="text" id="value"> <label for="">value</label>
+
+        <input type="submit" value="submit" id="submit">
+
+    </form>
+    <script>
+        document.getElementById("form").addEventListener('click',(e)=>{
+      e.preventDefault();
+     // let val=e.target.parentNode.firstChild;
+
+     /*
+      firstChild vs firstElementChild
+firstChild returns the first child node (an element node,
+ a text node or a comment node). Whitespace between elements are also 
+ text nodes.
+
+firstElementChild returns the first child element (not text and 
+comment nodes).
+
+     */
+     let val=e.target.parentNode.firstElementChild;
+     
+       let inputVal = document.getElementById("value");
+       console.log(e.target.parentNode.firstChild);
+       console.log(val);
+       console.log(inputVal);
+
+
+        });
+    </script>
+    
+</body>
+</html>
