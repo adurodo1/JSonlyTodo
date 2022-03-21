@@ -31,6 +31,9 @@ function createTodoItem(item) {
 //function callbacks for events
   //delete item call back
     function deleteTodo(element) {
+        
+        history= history.filter(todo=>todo.id!=element.id);
+        localStorage.saved= JSON.stringify(history);
         element.remove();
       
 
@@ -124,7 +127,10 @@ document.querySelector("#addTodo").addEventListener('click', (e) => {
     e.preventDefault();
 
     //create new todo item
+    if(document.querySelector("#todoBox").value)
     var newTodo = document.querySelector("#todoBox").value;
+    else
+   { alert("you must add a todo first");return;}
  
     document.querySelector("#todoList").appendChild(createTodoItem(newTodo))
 });
