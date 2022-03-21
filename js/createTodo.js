@@ -14,16 +14,17 @@ let todoHistory =[{
 if(key=='saved')
 {
  
-    alert(`${key}: ${localStorage.getItem(key)}`);
+   
     localStorage.savedState="true";
     break;
 }
-else
-localStorage.saved= JSON.stringify(todoHistory);
+ 
+
 
   }
  
-
+if(localStorage.savedState===false)
+localStorage.saved= JSON.stringify(todoHistory);
 
 //function to create Todo item
 function createTodoItem(item) {
@@ -31,13 +32,13 @@ function createTodoItem(item) {
   //delete item call back
     function deleteTodo(element) {
         element.remove();
-        console.log("working")
+      
 
     }
   //mark as done call back
     function markAsDone(element) {
         element.style.textDecoration='line-through';
-        console.log("working")
+     
 
     }
 
@@ -47,7 +48,7 @@ function createTodoItem(item) {
 //create btn function that will be used with this function instance
     function createBtn(color, text, callback) {
         let btn = document.createElement('button');
-        btn.className = "btn btn-danger";
+        btn.className = "btn btn-danger ";
         btn.innerHTML = text;
         btn.addEventListener('click', () => {
             callback(li)
@@ -57,10 +58,10 @@ function createTodoItem(item) {
     }
     //create new list item with appropriat class 
     let li = document.createElement('li');
-    li.className = "list-group-item";
+    li.className = "list-group-item text-center";
 
-   
-    li.innerHTML = item;
+   if(item=='')return;
+    li.innerHTML = `<span >${item}</span> `;
     //add id to todo
     li.id=`${idCnt}`
     idCnt++;
@@ -110,7 +111,7 @@ document.querySelector("#addTodo").addEventListener('click', (e) => {
 
     //create new todo item
     var newTodo = document.querySelector("#todoBox").value;
-    console.log(newTodo);
+ 
     document.querySelector("#todoList").appendChild(createTodoItem(newTodo))
 });
 

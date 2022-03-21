@@ -6,11 +6,16 @@ function importTodo(data){
     function createTodoItemforImport(item) {
  //function callbacks for events
    //delete item call back
+
+    
      function deleteTodo(element) {
         
-         console.log("working")
+
+         
+      
          history= history.filter(todo=>todo.id!=element.id);
          localStorage.saved= JSON.stringify(history);
+         element.remove();
 
 
 
@@ -18,8 +23,18 @@ function importTodo(data){
    //mark as done call back
      function markAsDone(element) {
          element.style.textDecoration='line-through';
-         console.log("working")
+         item.done=true;
 
+         history.map((data)=>{
+             if(data.id===item.id)
+             {
+                 data.done=item.done
+             }
+
+         });
+         localStorage.saved= JSON.stringify(history);
+         console.log(item)
+         
      }
 
 
@@ -38,17 +53,21 @@ function importTodo(data){
      }
      //create new list item with appropriat class 
      let li = document.createElement('li');
-     li.className = "list-group-item";
+     li.className = "list-group-item text-center ";
      li.innerHTML = item.title;
 
      li.id=item.id;
 
      //create delete button
      //  <button id="addTodo" type="submit" class="btn btn-primary">Submit</button>
-
+     if(item.done===true)
+     {
+        li.style.textDecoration='line-through';
+     }
      // li.appendChild(btn)
      li.appendChild(createBtn("danger", "delete", deleteTodo))
-     if(item.done===false)
+     li.setAttribute("draggable",true);
+  
      li.appendChild(createBtn("primary", "done", markAsDone))
 
      //create mark as done btn

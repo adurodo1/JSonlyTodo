@@ -21,14 +21,20 @@
             text-align: right;
             justify-content: right;
         }
+
+
+        .btn{
+            margin-left: 10px;
+        }
     </style>
     <div class="container">
+      <div class="row">
         <form method="post" action="#">
 
 
-            <div class="row">
+            <div class="row" style="padding-top: 30px;">
                 <div class="col">
-                    <label for="exampleInputEmail1" class="form-label">Todo</label>
+                    <label for="exampleInputEmail1" class="form-label"> Add Your Todo's</label>
 
                 </div>
                 <div class="col">
@@ -36,7 +42,7 @@
 
                 </div>
                 <div class="col">
-                    <button id="addTodo" type="submit" class="btn btn-primary">Submit</button>
+                    <button id="addTodo" type="submit" class="btn btn-primary">Add</button>
 
                 </div>
             </div>
@@ -46,13 +52,18 @@
 
         </form>
 
+      </div>
 
 
         <!--Todo's should appear here-->
-        <ul class="list-group" id="todoList">
-            <li class="list-group-item">An item</li>
+      <div class="row">
+        <ul class="list-group mr-auto ml-auto " id="todoList">
+           
 
         </ul>
+      </div>
+
+ 
 
 
     </div>
@@ -63,6 +74,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+<script>
+  var instruction ="This app automatically saves your todo to local storage unless you intentionally delete them"
+ alert(instruction);
+
+</script>        
  
 <script src="js/createTodo.js"></script>
 <script src="js/importTodo.js"></script>
