@@ -48,7 +48,7 @@ function createTodoItem(item) {
 //create btn function that will be used with this function instance
     function createBtn(color, text, callback) {
         let btn = document.createElement('button');
-        btn.className = "btn btn-danger ";
+        btn.className = `btn btn-${color} `;
         btn.innerHTML = text;
         btn.addEventListener('click', () => {
             callback(li)
@@ -71,7 +71,7 @@ function createTodoItem(item) {
 
     // li.appendChild(btn)
     li.appendChild(createBtn("danger", "delete", deleteTodo))
-    li.appendChild(createBtn("primary", "done", markAsDone))
+    li.appendChild(createBtn("warning", "done", markAsDone))
 
     //create mark as done btn
   

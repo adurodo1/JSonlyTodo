@@ -43,7 +43,7 @@ function importTodo(data){
  //create btn function that will be used with this function instance
      function createBtn(color, text, callback) {
          let btn = document.createElement('button');
-         btn.className = "btn btn-danger";
+         btn.className = `btn btn-${color} `;
          btn.innerHTML = text;
          btn.addEventListener('click', () => {
              callback(li)
@@ -68,7 +68,7 @@ function importTodo(data){
      li.appendChild(createBtn("danger", "delete", deleteTodo))
      li.setAttribute("draggable",true);
   
-     li.appendChild(createBtn("primary", "done", markAsDone))
+     li.appendChild(createBtn("warning", "done", markAsDone))
 
      //create mark as done btn
      return li;
