@@ -74,7 +74,8 @@ function createTodoItem(item) {
     li.appendChild(createBtn("primary", "done", markAsDone))
 
     //create mark as done btn
-    let prevLocalStorageState=JSON.parse(localStorage.saved)
+    if(localStorage.savedState="false")
+  {  let prevLocalStorageState=JSON.parse(localStorage.saved)
     console.log(prevLocalStorageState);
     prevLocalStorageState.push(  {
         id:idCnt,
@@ -82,7 +83,7 @@ function createTodoItem(item) {
         done:false
      });
      let newState=prevLocalStorageState;
-     localStorage.setItem('saved', JSON.stringify(newState));
+     localStorage.setItem('saved', JSON.stringify(newState));}
   
     return li;
 }
