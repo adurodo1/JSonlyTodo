@@ -64,6 +64,10 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script>
+      const todoHistory=[];
+
+
+      let idCnt=0;
 
         //function to create Todo item
         function createTodoItem(item) {
@@ -98,6 +102,8 @@
             //create new list item with appropriat class 
             let li = document.createElement('li');
             li.className = "list-group-item";
+
+           
             li.innerHTML = item;
 
             //create delete button
@@ -110,6 +116,100 @@
             //create mark as done btn
             return li;
         }
+
+       //End of function to create Todo 
+       
+       //function to import from local storage
+
+       function importTodo(data){
+
+
+           //functio for transdorming created data on local storage
+
+           function createTodoItemforImport(item) {
+        //function callbacks for events
+          //delete item call back
+            function deleteTodo(element) {
+                element.remove();
+                console.log("working")
+
+            }
+          //mark as done call back
+            function markAsDone(element) {
+                element.style.color='red';
+                console.log("working")
+
+            }
+
+
+
+        //end of function call backs
+        //create btn function that will be used with this function instance
+            function createBtn(color, text, callback) {
+                let btn = document.createElement('button');
+                btn.className = "btn btn-danger";
+                btn.innerHTML = text;
+                btn.addEventListener('click', () => {
+                    callback(li)
+
+                })
+                return btn;
+            }
+            //create new list item with appropriat class 
+            let li = document.createElement('li');
+            li.className = "list-group-item";
+            li.innerHTML = item.title;
+
+            //create delete button
+            //  <button id="addTodo" type="submit" class="btn btn-primary">Submit</button>
+
+            // li.appendChild(btn)
+            li.appendChild(createBtn("danger", "delete", deleteTodo))
+            if(item.done===true)
+            li.appendChild(createBtn("primary", "done", markAsDone))
+
+            //create mark as done btn
+            return li;
+        }
+
+
+
+        data.map((todo)=>{
+
+            document.querySelector("#todoList").appendChild(createTodoItemforImport(todo))
+
+            
+            var id=todo.id;
+        var title=todo.title;
+        var done=todo.done;
+
+        })
+
+  
+
+
+       }
+
+        //Main
+        
+    //   const obj =[{
+    //       id:1,
+    //       title:"tah tah",
+    //       done:false
+    //   }]
+
+         // code snippet on how to renove propert from obj
+//          const{['title']:unused,...rest} =obj[0];
+//     console.log(unused);
+
+//                      OR 
+ 
+//           const{title,...rest} =obj[0];
+// console.log(title);
+   
+   
+
+        importTodo(obj);
 
 
 
