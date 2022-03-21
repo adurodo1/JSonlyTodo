@@ -23,7 +23,7 @@ if(key=='saved')
 
   }
  
-if(localStorage.savedState===false)
+if(localStorage.savedState==="false")
 localStorage.saved= JSON.stringify(todoHistory);
 
 //function to create Todo item
@@ -74,16 +74,29 @@ function createTodoItem(item) {
     li.appendChild(createBtn("primary", "done", markAsDone))
 
     //create mark as done btn
-    if(localStorage.savedState="false")
-  {  let prevLocalStorageState=JSON.parse(localStorage.saved)
-    console.log(prevLocalStorageState);
+  
+    let prevLocalStorageState=[];
+    if((localStorage.saved))
+      {
+    console.log(JSON.parse(localStorage.saved));
+     prevLocalStorageState=JSON.parse(localStorage.saved)
     prevLocalStorageState.push(  {
         id:idCnt,
         title:item,
         done:false
      });
+      }
+      else
+    
+{    prevLocalStorageState.push(  {
+        id:idCnt,
+        title:item,
+        done:false
+     });}
      let newState=prevLocalStorageState;
-     localStorage.setItem('saved', JSON.stringify(newState));}
+     localStorage.setItem('saved', JSON.stringify(newState));
+    
+  
   
     return li;
 }
