@@ -8,11 +8,93 @@
     <title>Js Todo </title>
 </head>
 <body>
-    
+    <style>
+        .col{
+            padding: 0;
+            margin: 0;
+        }
+        .form-label{
+            text-align: right;
+            justify-content: right;
+        }
+    </style>
+    <div class="container">
+        <form method="post" action="#">
+
+
+            <div class="row">
+                <div class="col">
+                    <label for="exampleInputEmail1" class="form-label">Todo</label>
+             
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="todoBox" >
+           
+                </div>
+                <div class="col">
+                    <button id="addTodo" type="submit" class="btn btn-primary">Submit</button>
+        
+                </div>
+              </div>
+
+
+         
+            
+              </form>
+
+
+
+            <!--Todo's should appear here-->
+            <ul class="list-group" id="todoList">
+                <li class="list-group-item">An item</li>
+            
+              </ul>
+
+
+      </div>
 
 <!--
     Scripts
 -->    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+
+//function to create Todo item
+function createTodoItem(item) {
+     //create new list item with appropriat class 
+            let li = document.createElement('li');
+            li.className="list-group-item";
+            li.innerHTML=item;
+
+            //create delete button
+            //  <button id="addTodo" type="submit" class="btn btn-primary">Submit</button>
+          
+            return li;
+         }
+
+
+
+    document.querySelector("#addTodo").addEventListener('click',(e)=>{
+  e.preventDefault();
+  
+//create new todo item
+  var newTodo=document.querySelector("#todoBox").value;
+  console.log(newTodo);
+
+ 
+  
+  document.querySelector("#todoList").appendChild(createTodoItem(newTodo))
+ 
+//  let val=e.target.parentNode.firstElementChild;
+ 
+//    let inputVal = document.getElementById("value");
+//    console.log(e.target.parentNode.firstChild);
+//    console.log(val);
+//    console.log(inputVal);
+
+
+    });
+</script>
+
 </body>
 </html>
