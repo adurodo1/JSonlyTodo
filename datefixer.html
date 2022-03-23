@@ -10,6 +10,11 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        input[type='number']{
+
+        }
+    </style>
     
 
     <table class="table">
@@ -25,8 +30,63 @@
           <tr>
             <th scope="row">1</th>
             <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>
+                <!--Year-->
+               <div>
+
+                <label for="Number">
+                    Year:
+                    </label>
+                  <input type="number" id="Number" size="2" 
+             name="Number" min="2020" max="2099" style="width: 100px;">
+               </div>
+               <!--Month-->
+               <div>
+                   
+
+                <label for="Number">
+                    Month:
+                    </label>
+                  <input type="number" id="Number"  
+             name="Number" min="1" max="12" style="width: 50px;">
+               </div>
+
+
+               <!--Day-->
+               <div>
+
+                <label for="Number">
+                    Day:
+                    </label>
+                  <input type="number" id="Number" 
+             name="Number" min="1" max="31" style="width: 50px;">
+               </div>
+            </td>
+            <td>
+
+                <div>
+                   
+                       <!--HH-->
+                    <label for="Number">
+                        HH:
+                        </label>
+                      <input type="number" id="Number"  
+                 name="Number" min="1" max="24" style="width: 50px;">
+                   </div>
+    
+    
+                   <!--Min-->
+                   <div>
+    
+                    <label for="Number">
+                        MM:
+                        </label>
+                      <input type="number" id="Number" 
+                 name="Number" min="1" max="60" style="width: 50px;">
+                   </div>
+
+
+            </td>
           </tr>
           <tr>
             <th scope="row">2</th>
@@ -50,6 +110,9 @@
     crossorigin="anonymous"></script>
 
     <script type="text/javascript">
+
+        var myDate = new Date();
+
 
     </script>
 
