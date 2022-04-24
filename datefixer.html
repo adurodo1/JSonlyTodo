@@ -8,16 +8,37 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Document</title>
+    <script type="text/javascript">
+        alert
+        console.log(localStorage.saved);
+    </script>
 </head>
 <body>
     <style>
         input[type='number']{
 
         }
+        
+        .table {
+   width: auto;
+}
+        
+
+        td{
+          
+            width: 300px;
+        }
+
+        td.todo{
+        
+            width: 400px;
+        }
+
+    
     </style>
     
-
-    <table class="table">
+    <div class="table-responsive">
+    <table class="table align-middle">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -88,19 +109,11 @@
 
             </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+       
+       
         </tbody>
       </table>
+      </div>
 
 
 

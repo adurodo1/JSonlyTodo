@@ -1,0 +1,90 @@
+/* Global styles*/
+
+html{
+    font-size: 62.5%;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+  
+}
+
+body{
+    background-image:linear-gradient(120deg,rgb(154, 150, 168),rgba(34,32,41,0.8) ) ; 
+    background-size: cover;
+    min-height: 100vh;
+    line-height: 3.5rem;
+}
+
+.container{
+    width: 60%;
+    margin: auto;
+   
+}
+
+.input-field{
+    width:23rem;
+    margin: auto;
+    position: relative;
+    display: flex;
+}
+
+#todoBox{
+    width: 20rem;
+    height: 3.6rem;
+}
+
+.input-field-add-todo{
+    position: absolute;
+    right: 3.3rem;
+    width: 2rem;
+    text-align: center;
+    font-weight:bolder;
+    font-size:3rem;
+    
+
+    cursor: pointer;
+
+}
+
+.todo-table{
+
+    width: 300px;
+    margin: auto;
+    line-height: 2rem;
+    font-size: larger;
+
+}
+
+.todo-table-activities{
+    min-width: 10rem;
+}
+.todo-table-activities-item{
+    background-color: aliceblue;
+    min-width: 20rem;
+}
+.todo-table-activities-item-container{
+    padding-right: 0px;
+    text-align: center;
+
+}
+
+.delete{
+    background-color: red;
+    padding: .7rem;
+}
+.delete:hover{
+    cursor: pointer;
+}
+.done{
+    background-color: greenyellow;
+    padding: .7rem;
+
+}
+
+.done:hover{
+    cursor: pointer;
+}
+
+tr{
+    line-height: 3rem;
+    font-size: 2.2rem;
+}

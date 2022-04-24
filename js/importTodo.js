@@ -43,13 +43,19 @@ function importTodo(data){
  //create btn function that will be used with this function instance
      function createBtn(color, text, callback) {
          let btn = document.createElement('button');
-         btn.className = `btn btn-${color} `;
+         btn.className = `btn btn-${color}  text-left `;
          btn.innerHTML = text;
          btn.addEventListener('click', () => {
-             callback(li)
+             callback(tr)
 
          })
-         return btn;
+
+         let td = document.createElement('td');
+         td.className="";
+        td.appendChild(btn);
+       
+        
+        return td;
      }
      //create new list item with appropriat class 
      let li = document.createElement('li');
@@ -70,8 +76,33 @@ function importTodo(data){
   
      li.appendChild(createBtn("warning", "done", markAsDone))
 
+
+     //tr approach
+
+         //create new list item with appropriat class 
+         let tr = document.createElement('tr');
+         tr.className = " ";
+         tr.innerHTML = `<td>${item.title}</td>`;
+    
+         tr.id=item.id;
+    
+         //create delete button
+         //  <button id="addTodo" type="submit" class="btn btn-primary">Submit</button>
+         if(item.done===true)
+         {
+            tr.style.textDecoration='line-through';
+         }
+         // li.appendChild(btn)
+         tr.appendChild(createBtn("danger", "delete", deleteTodo))
+         tr.setAttribute("draggable",true);
+      
+         tr.appendChild(createBtn("warning", "done", markAsDone))
+
+
+     //tr approach end
+
      //create mark as done btn
-     return li;
+     return tr;
  }
 
 
