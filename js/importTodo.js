@@ -41,21 +41,38 @@ function importTodo(data){
 
  //end of function call backs
  //create btn function that will be used with this function instance
-     function createBtn(color, text, callback) {
-         let btn = document.createElement('button');
-         btn.className = `btn btn-${color}  text-left `;
-         btn.innerHTML = text;
-         btn.addEventListener('click', () => {
-             callback(tr)
+     function createBtn(fav, fav_style, callback) {
+        //  let btn = document.createElement('button');
+        //  btn.className = `btn btn-${color}  text-left `;
+        //  btn.innerHTML = text;
+        //  btn.addEventListener('click', () => {
+        //      callback(tr)
 
-         })
+        //  })
 
-         let td = document.createElement('td');
-         td.className="";
-        td.appendChild(btn);
+        //  let td = document.createElement('td');
+        //  td.className="";
+        // td.appendChild(btn);
        
         
-        return td;
+        // return td;
+
+
+        let btn = document.createElement('i');
+        //<i class="fa-solid fa-trash"></i>
+  
+      //<i class="fa-solid fa-check"></i>
+      btn.className = `fa-solid ${fav} ${fav_style} `;
+      btn.innerHTML ;
+      btn.addEventListener('click', () => {
+          callback(tr)
+  
+      })
+  
+      let td = document.createElement('td');
+      td.className='todo-table-activities-item-container'
+     td.appendChild(btn);
+     return td;
      }
      //create new list item with appropriat class 
      let li = document.createElement('li');
@@ -71,17 +88,18 @@ function importTodo(data){
         li.style.textDecoration='line-through';
      }
      // li.appendChild(btn)
-     li.appendChild(createBtn("danger", "delete", deleteTodo))
+     li.appendChild(createBtn("fa-trash", "delete", deleteTodo))
      li.setAttribute("draggable",true);
   
-     li.appendChild(createBtn("warning", "done", markAsDone))
+     li.appendChild(createBtn("fa-check", "done", markAsDone))
 
 
      //tr approach
 
          //create new list item with appropriat class 
          let tr = document.createElement('tr');
-         tr.className = " ";
+        
+         tr.className = "todo-table-activities-item";
          tr.innerHTML = `<td>${item.title}</td>`;
     
          tr.id=item.id;
@@ -93,10 +111,10 @@ function importTodo(data){
             tr.style.textDecoration='line-through';
          }
          // li.appendChild(btn)
-         tr.appendChild(createBtn("danger", "delete", deleteTodo))
+         tr.appendChild(createBtn("fa-trash", "delete", deleteTodo))
          tr.setAttribute("draggable",true);
       
-         tr.appendChild(createBtn("warning", "done", markAsDone))
+         tr.appendChild(createBtn("fa-check", "done", markAsDone))
 
 
      //tr approach end
