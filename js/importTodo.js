@@ -16,7 +16,7 @@ function importTodo(data){
          history= history.filter(todo=>todo.id!=element.id);
          localStorage.saved= JSON.stringify(history);
          element.remove();
-
+/////
 
 
      }

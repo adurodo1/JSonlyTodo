@@ -62,7 +62,7 @@ function createBtn(fav, fav_style, callback) {
    td.appendChild(btn);
    return td;
 }
-
+/////
 
 
          //create new list item with appropriat class 
